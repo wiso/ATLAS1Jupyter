@@ -1,4 +1,5 @@
-# Instructions
+## Instructions
+This is a simple script to run a jupyter notebook remotely, tunneling through atlas1. 
 
 ### From Cluster Node
 Run `notebook.sh` or submit a batchjob on the port of your choice `qsub -v ssh_port=4321 -X notebook.sh`
