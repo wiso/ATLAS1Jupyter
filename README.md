@@ -4,7 +4,7 @@ This is a simple script to run a jupyter notebook remotely, tunneling through at
 The example below uses the port 4321, please be sure to slect unique port to avoid conflicts. 
 
 ### From Cluster Node
-Run `notebook.sh 4321` or submit a batchjob on the port of your choice `qsub -v ssh_port=4321 -X notebook.sh`
+Run `notebook.sh 4321` or submit a batchjob on the port of your choice `qsub -v ssh_port=4321 -X notebook.pbs`
 
 ### From Local Computer
 Listen to port `ssh -N -f -L 4321:localhost:4321 atlas1.hep.yale.edu`
