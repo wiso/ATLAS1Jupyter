@@ -7,8 +7,9 @@
 #PBS -e pbslogs/$PBS_JOBNAME.${PBS_JOBID}.e
 #PBS -v ssh_port=55577
 
+#  ATTENTION: Please change port number to avoid complications
 
-#  To avoid complications, please change port number
+. ~/.bashrc
 
 cd $PBS_O_WORKDIR/
 . notebook.sh 
