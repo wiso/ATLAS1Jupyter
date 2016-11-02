@@ -11,5 +11,4 @@
 #  To avoid complications, please change port number
 
 cd $PBS_O_WORKDIR/
-touch USING_PORT_${ssh_port}
 . notebook.sh 
