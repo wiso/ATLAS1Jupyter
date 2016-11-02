@@ -1,0 +1,15 @@
+#PBS -q hep
+#PBS -N jupyter_notebook
+#PBS -l nodes=1:ppn=4,mem=32gb
+#PBS -l walltime=120:00:00
+#PBS -m abe -M jared.vasquez@yale.edu
+#PBS -o pbslogs/$PBS_JOBNAME.${PBS_JOBID}.o
+#PBS -e pbslogs/$PBS_JOBNAME.${PBS_JOBID}.e
+#PBS -v ssh_port=55577
+
+
+#  To avoid complications, please change port number
+
+cd $PBS_O_WORKDIR/
+touch USING_PORT_${ssh_port}
+. notebook.sh 
