@@ -1,10 +1,17 @@
 # Script to open up a jupyter notebook tunneled through atlas1 
 #  --> Please use another port to avoid complications
 
+if [ ! -z "$1" ]; then
+  ssh_port=$1
+  echo "Setting port to $ssh_port"
+fi
+
 if [ -z "$ssh_port" ]; then
   ssh_port=55577
   echo "PORT NOT SET: Using port $ssh_port"
 fi
+
+echo "Tunneling through port $ssh_port"
 
 # load conda environment 
 module load Langs/Python/3.5-anaconda
@@ -14,3 +21,5 @@ ssh -f -o ExitOnForwardFailure=yes atlas1.hep.yale.edu -R ${ssh_port}:localhost:
 
 # launch notebook
 jupyter notebook --no-browser --port=${ssh_port}
+
+unset ssh_port
