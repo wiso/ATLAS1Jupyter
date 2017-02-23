@@ -16,18 +16,17 @@ host_name=`hostname -f`
 echo "Tunneling through port $ssh_port from $host_name"
 
 # setup tunnel
-#ssh -f -o ExitOnForwardFailure=yes ${host_name} -R ${ssh_port}:localhost:${ssh_port} sleep 30
-
-# launch notebook
-#jupyter notebook --no-browser --port=${ssh_port} --ip 127.0.0.1
+ssh -f -o ExitOnForwardFailure=yes ${host_name} -R ${ssh_port}:localhost:${ssh_port} sleep 30
 
 echo -e "\nRun this command on your client:"
 echo -e "\n  ssh -N -f -L $ssh_port:localhost:$ssh_port $host_name"
-echo -e "\nand open a browser to http://localhost:$ssh_port"
-echo
 
 if [ -z `hostname -d` ]; then
     echo "domain is missing from the hostname $host_name, you have to add it"
 fi
+
+# launch notebook
+jupyter notebook --no-browser --port=${ssh_port} --ip 127.0.0.1
+
 
 unset ssh_port
